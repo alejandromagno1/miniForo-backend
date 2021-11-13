@@ -36,10 +36,10 @@ jobs:
           aws-region: us-west-2  # Region to access CodeGuru
 
       - name: Set Up JDK
-        uses: actions/setup-java@1
-        with:
-          - java-version: '11'
-          - distribution: 'adopt'
+        uses: actions/setup-java@v2
+          with:
+            java-version: '11'
+            distribution: 'adopt'
 
       - name: Build with gradle
         run: ./gradlew build

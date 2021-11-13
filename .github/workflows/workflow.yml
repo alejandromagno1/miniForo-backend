@@ -37,9 +37,9 @@ jobs:
 
       - name: Set Up JDK
         uses: actions/setup-java@v2
-          with:
-            java-version: '11'
-            distribution: 'adopt'
+        with:
+          java-version: '11'
+          distribution: 'adopt'
 
       - name: Build with gradle
         run: ./gradlew build

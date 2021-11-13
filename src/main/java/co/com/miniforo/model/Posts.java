@@ -15,10 +15,10 @@ public class Posts implements Serializable{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "idPost")
     private Long id;
 
-    @Column(name = "id_user")
+    @Column(name = "userId")
     private Long idUser;
 	
 	@Column(name = "title")

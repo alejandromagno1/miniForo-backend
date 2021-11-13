@@ -22,8 +22,8 @@ public class CommentsService {
     private String msjErrDel = "Ocurrio un error al momento de eliminar el registro";
 
     @Autowired
-    public CommentsService(ICommentsRepository repository){
-        this.repository = repository;
+    public CommentsService(ICommentsRepository rep){
+        this.repository = rep;
     }
 
     public List<Comments> getAll() throws CoreException{

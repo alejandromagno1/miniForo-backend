@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PostsController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">miniforo</a> &gt; <a href="index.source.html" class="el_package">co.com.miniforo.controller</a> &gt; <span class="el_source">PostsController.java</span></div><h1>PostsController.java</h1><pre class="source lang-java linenums">package co.com.miniforo.controller;
+
+import co.com.common.GenericResponse;
+import co.com.common.error.CoreException;
+import co.com.miniforo.model.Posts;
+import co.com.miniforo.service.PostsService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@CrossOrigin(origins = &quot;*&quot;, allowedHeaders = &quot;*&quot;)
+@RequestMapping(&quot;/posts&quot;)
+@Api(&quot;This API has a CRUD for Posts&quot;)
+public class PostsController {
+
+    @Autowired
+    private PostsService service;
+
+<span class="fc" id="L24">    public PostsController(PostsService service) {</span>
+<span class="fc" id="L25">        this.service = service;</span>
+<span class="fc" id="L26">    }</span>
+
+    @ApiOperation(value = &quot;Este mÃ©todo se encarga de retornar todos los Posts existentes&quot;, response = Posts.class)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = &quot;Successfully&quot;),
+        @ApiResponse(code = 400, message = &quot;Bad Request&quot;),
+        @ApiResponse(code = 401, message = &quot;You are not authorized&quot;),
+        @ApiResponse(code = 404, message = &quot;Not Found&quot;),
+        @ApiResponse(code = 500, message = &quot;Internal Server Error&quot;)})
+    @GetMapping()
+    public GenericResponse get() {
+<span class="fc" id="L37">        GenericResponse response = new GenericResponse();</span>
+        try {
+<span class="fc" id="L39">            response.success(service.getAll());</span>
+<span class="fc" id="L40">        } catch (CoreException e) {</span>
+<span class="fc" id="L41">            response.failure(e);</span>
+<span class="fc" id="L42">        }</span>
+<span class="fc" id="L43">        return response;</span>
+    }
+    
+    @ApiOperation(value = &quot;Este mÃ©todo se encarga de retornar el post solicitado&quot;, response = Posts.class)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = &quot;Successfully&quot;),
+        @ApiResponse(code = 400, message = &quot;Bad Request&quot;),
+        @ApiResponse(code = 401, message = &quot;You are not authorized&quot;),
+        @ApiResponse(code = 404, message = &quot;Not Found&quot;),
+        @ApiResponse(code = 500, message = &quot;Internal Server Error&quot;)})
+    @GetMapping(&quot;/{id}&quot;)
+    public GenericResponse get(@PathVariable Long id) {
+<span class="fc" id="L55">        GenericResponse response = new GenericResponse();</span>
+        try {
+<span class="fc" id="L57">        	response.success(service.getOne(id));</span>
+<span class="fc" id="L58">        } catch (CoreException e) {</span>
+<span class="fc" id="L59">            response.failure(e);</span>
+<span class="fc" id="L60">        }</span>
+<span class="fc" id="L61">        return response;</span>
+    }
+
+    @ApiOperation(value = &quot;Este mÃ©todo se encarga de crear y/o modificar un post&quot;, response = Posts.class)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = &quot;Successfully&quot;),
+        @ApiResponse(code = 400, message = &quot;Bad Request&quot;),
+        @ApiResponse(code = 401, message = &quot;You are not authorized&quot;),
+        @ApiResponse(code = 404, message = &quot;Not Found&quot;),
+        @ApiResponse(code = 500, message = &quot;Internal Server Error&quot;)})
+    @PostMapping
+    public GenericResponse save(@Validated @RequestBody Posts data) {
+<span class="fc" id="L73">        GenericResponse response = new GenericResponse();</span>
+        try {
+<span class="fc" id="L75">            service.save(data);</span>
+<span class="fc" id="L76">            response.success();</span>
+<span class="fc" id="L77">        } catch (CoreException e) {</span>
+<span class="fc" id="L78">            response.failure(e);</span>
+<span class="fc" id="L79">        }</span>
+<span class="fc" id="L80">        return response;</span>
+    }
+    
+    @ApiOperation(value = &quot;Este mÃ©todo se encarga de modificar un post existente.&quot;, response = Posts.class)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = &quot;Successfully&quot;),
+        @ApiResponse(code = 400, message = &quot;Bad Request&quot;),
+        @ApiResponse(code = 401, message = &quot;You are not authorized&quot;),
+        @ApiResponse(code = 404, message = &quot;Not Found&quot;),
+        @ApiResponse(code = 500, message = &quot;Internal Server Error&quot;)})
+    @PutMapping(&quot;/{id}&quot;)
+    public GenericResponse edit(@Validated @RequestBody Posts data) {
+<span class="fc" id="L92">        GenericResponse response = new GenericResponse();</span>
+        try {
+<span class="fc" id="L94">            service.update(data);</span>
+<span class="fc" id="L95">            response.success();</span>
+<span class="fc" id="L96">        } catch (CoreException e) {</span>
+<span class="fc" id="L97">            response.failure(e);</span>
+<span class="fc" id="L98">        }</span>
+<span class="fc" id="L99">        return response;</span>
+    }
+
+    @ApiOperation(value = &quot;Este mÃ©todo se encarga de eliminar el post indicado.&quot;, response = Posts.class)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = &quot;Successfully&quot;),
+        @ApiResponse(code = 400, message = &quot;Bad Request&quot;),
+        @ApiResponse(code = 401, message = &quot;You are not authorized&quot;),
+        @ApiResponse(code = 404, message = &quot;Not Found&quot;),
+        @ApiResponse(code = 500, message = &quot;Internal Server Error&quot;)})
+    @DeleteMapping(&quot;/{id}&quot;)
+    public GenericResponse delete(@PathVariable Long id) {
+<span class="fc" id="L111">        GenericResponse response = new GenericResponse();</span>
+        try {
+<span class="fc" id="L113">            service.delete(id);</span>
+<span class="fc" id="L114">            response.success();</span>
+<span class="fc" id="L115">        } catch (CoreException e) {</span>
+<span class="fc" id="L116">            response.failure(e);</span>
+<span class="fc" id="L117">        }</span>
+<span class="fc" id="L118">        return response;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

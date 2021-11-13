@@ -15,13 +15,13 @@ public class Comments implements Serializable{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "idComm")
     private Long id;
 
-    @Column(name = "id_post")
+    @Column(name = "postId")
     private Long idPost;
 
-    @Column(name = "id_user")
+    @Column(name = "userId")
     private Long idUser;
 
     @Column(name = "body")

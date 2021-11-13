@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Comments.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">miniforo</a> &gt; <a href="index.source.html" class="el_package">co.com.miniforo.model</a> &gt; <span class="el_source">Comments.java</span></div><h1>Comments.java</h1><pre class="source lang-java linenums">package co.com.miniforo.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+<span class="pc bnc" id="L9" title="All 46 branches missed.">@Data</span>
+@Entity
+@Table(name=&quot;comments&quot;)
+@JsonIgnoreProperties({&quot;hibernateLazyInitializer&quot;, &quot;handler&quot;})
+public class Comments implements Serializable{
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;idComm&quot;)
+<span class="nc" id="L19">    private Long id;</span>
+
+    @Column(name = &quot;postId&quot;)
+<span class="nc" id="L22">    private Long idPost;</span>
+
+    @Column(name = &quot;userId&quot;)
+<span class="nc" id="L25">    private Long idUser;</span>
+
+    @Column(name = &quot;body&quot;)
+<span class="nc" id="L28">    private String body;</span>
+
+    @Column(name = &quot;state&quot;)
+<span class="nc" id="L31">    private String state;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

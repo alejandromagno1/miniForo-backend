@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.miniforo.controller.UsersControllerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-11-13T21:27:28" hostname="SI99APS003" time="0.023">
+<testsuite name="co.com.miniforo.controller.UsersControllerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-11-14T05:21:40" hostname="SI99APS003" time="0.047">
   <properties/>
-  <testcase name="delete()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.002"/>
+  <testcase name="delete()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.003"/>
   <testcase name="getOne()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.002"/>
-  <testcase name="deleteFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.002"/>
-  <testcase name="get()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.002"/>
-  <testcase name="edit()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.001"/>
-  <testcase name="save()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.001"/>
-  <testcase name="getFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.001"/>
-  <testcase name="saveFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.001"/>
-  <testcase name="getOneFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.002"/>
-  <testcase name="editFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.002"/>
-  <system-out><![CDATA[16:27:28.468 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de eliminar el registro
+  <testcase name="deleteFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.004"/>
+  <testcase name="get()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.003"/>
+  <testcase name="edit()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.002"/>
+  <testcase name="save()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.003"/>
+  <testcase name="getFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.004"/>
+  <testcase name="saveFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.004"/>
+  <testcase name="getOneFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.004"/>
+  <testcase name="editFailed()" classname="co.com.miniforo.controller.UsersControllerTest" time="0.004"/>
+  <system-out><![CDATA[00:21:40.331 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de eliminar el registro
 java.lang.NullPointerException: null
-16:27:28.479 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de consultar el registro
+00:21:40.341 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de consultar el registro
 java.lang.NullPointerException: null
-16:27:28.479 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de guardar el registro
+00:21:40.352 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de guardar el registro
 java.lang.NullPointerException: null
-16:27:28.479 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de consultar el registro
+00:21:40.360 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de consultar el registro
 java.lang.NullPointerException: null
-16:27:28.487 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de guardar el registro
+00:21:40.362 [Test worker] ERROR co.com.miniforo.service.UsersService - Ocurrio un error al momento de guardar el registro
 java.lang.NullPointerException: null
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

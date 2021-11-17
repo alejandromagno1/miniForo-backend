@@ -1,0 +1,30 @@
+name: AWS SSM Send-Command Example
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: AWS SSM Send-Command
+        uses: peterkimzz/aws-ssm-send-command@1.0.1
+        id: ssm
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+          instance-ids: ${{ secrets.INSTANCE_ID }}
+          working-directory: /home/ubuntu
+          command: sh deploy-service.sh
+          comment: Despliegue de la aplicación mini foro
+
+      # Catch SSM outputs
+      - name: Get the outputs
+        run: echo "The Command id is ${{ steps.ssm.outputs.command-id }}"

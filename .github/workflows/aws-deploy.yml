@@ -20,7 +20,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
-          instance-ids: i-0773264b69402dc13
+          instance-ids: ${{ secrets.INSTANCE_ID }}
           working-directory: /home/ubuntu
           command: sh deploy-service.sh
           comment: Despliegue de la aplicación mini foro
